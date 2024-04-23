@@ -8,6 +8,7 @@ public class StyleSystem : MonoBehaviour
     [SerializeField] Button[] botones;
     [SerializeField] GameObject[] paneles;
     [SerializeField] Colors_SO[] PaletasColores;
+    [SerializeField] GlobalValues_SO idC;
 
     private void Start()
     {
@@ -15,30 +16,31 @@ public class StyleSystem : MonoBehaviour
     }
     private void OnEnable()
     {
-        ChangeColor(2);
+        ChangeColor(idC.scoreGlobal);
     }
     public void ChangeColor(int id)
     {
         Debug.Log(id);
+        idC.scoreGlobal = id;
         if (textos != null)
         {
             for (int i = 0; i < textos.Length; i++)
             {
-                textos[i].color = PaletasColores[id].colors[0];
+                textos[i].color = PaletasColores[idC.scoreGlobal].colors[0];
             }
         }
         if (botones != null)
         {
             for (int i = 0; i < botones.Length; i++)
             {
-                botones[i].image.color = PaletasColores[id].colors[0];
+                botones[i].image.color = PaletasColores[idC.scoreGlobal].colors[0];
             }
         }
         if (paneles != null)
         {
             for (int i = 0; i < paneles.Length; i++)
             {
-                paneles[i].GetComponent<Image>().color = PaletasColores[id].colors[0];
+                paneles[i].GetComponent<Image>().color = PaletasColores[idC.scoreGlobal].colors[0];
             }
         }
     }

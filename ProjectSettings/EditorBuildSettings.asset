@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/PantallaInicio/Inicio.unity
+    guid: 6bc434479297a3948b763ed699abc8a3
+  - enabled: 1
     path: Assets/Scenes/GamePlay/GamePlay.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
@@ -18,12 +21,15 @@ EditorBuildSettings:
     path: Assets/Scenes/PantallaInicio/World.unity
     guid: c5b38af3aa0c1714ca6c8023605925a1
   - enabled: 1
-    path: Assets/Scenes/PantallaInicio/Inicio.unity
-    guid: 6bc434479297a3948b763ed699abc8a3
-  - enabled: 1
     path: Assets/Scenes/GamePlay/Results.unity
     guid: bfc6937f9579d1e41b2a92c09429a03c
   - enabled: 1
     path: Assets/Scenes/PantallaInicio/SplashScreen.unity
     guid: ba87faf908678124f89e1feaa7bc093f
-  m_configObjects: {}
+  - enabled: 1
+    path: Assets/Scenes/NotificationsScene.unity
+    guid: 786c0a4e2681a2d49b420369c3267d96
+  m_configObjects:
+    com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: fd90fb6ec8eeb4b4c832e25f2758c31e, type: 2}
+    com.unity.adaptiveperformance.samsung.android.provider_settings: {fileID: 11400000, guid: e408db797f521064b8c8e490563eee6a, type: 2}
+    com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: 9005829333fc26b40b515e67c68fd743, type: 2}

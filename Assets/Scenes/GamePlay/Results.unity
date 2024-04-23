@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -904,7 +904,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 27.00003, y: 7}
+  m_AnchoredPosition: {x: 27, y: 7}
   m_SizeDelta: {x: -156.2545, y: -70.1551}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1543688534
@@ -960,6 +960,8 @@ GameObject:
   - component: {fileID: 1585812374}
   - component: {fileID: 1585812375}
   - component: {fileID: 1585812376}
+  - component: {fileID: 1585812377}
+  - component: {fileID: 1585812378}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -995,7 +997,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameScene: Results
-  NextScene: 4
+  NextScene: 0
   botonesColors: []
   botonesNavesSelection: []
   naves: []
@@ -1016,6 +1018,9 @@ MonoBehaviour:
   score: {fileID: 0}
   Maxscore: {fileID: 376596112}
   _scoreSO: {fileID: 11400000, guid: 27b38f7276c14b94399fef7a8a9ecd77, type: 2}
+  _MaxscoreSO: {fileID: 11400000, guid: 57569aa86508969488436978a4adbb34, type: 2}
+  fire: {fileID: 0}
+  reload: {fileID: 0}
   barraBalas: {fileID: 0}
   cantBalas: {fileID: 0}
   LasBalas: 70
@@ -1026,9 +1031,46 @@ MonoBehaviour:
   LaVida: 70
   denominadorLife: 0
   vidaPorcentaje: 0
+  dead: {fileID: 0}
   panelLose: {fileID: 0}
   scoreFinaltxt: {fileID: 0}
   btnHome: {fileID: 0}
+  notiScore: {fileID: 11400000, guid: 9893e35a6e7636241adc154959f1569a, type: 2}
+  notiMaxScore: {fileID: 11400000, guid: d5212a40ab267e9479bff666a4c10844, type: 2}
+--- !u!114 &1585812377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1585812373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c53428651559fe84ba281f703f46a27d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textos: []
+  botones:
+  - {fileID: 1527598770}
+  paneles:
+  - {fileID: 1188305069}
+  PaletasColores:
+  - {fileID: 11400000, guid: bef98bc167811ee4b985181a650a5190, type: 2}
+  - {fileID: 11400000, guid: 29f5f00fc5893f24f81aa4014edc2e74, type: 2}
+  - {fileID: 11400000, guid: fdbfe401b6bd66d4ab80855890603041, type: 2}
+  idC: {fileID: 11400000, guid: fcb6e9585ad9dcf4ab38061f45e3b586, type: 2}
+--- !u!114 &1585812378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1585812373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b3759fade9173742bdf5f29960afb04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1844700787
 GameObject:
   m_ObjectHideFlags: 0

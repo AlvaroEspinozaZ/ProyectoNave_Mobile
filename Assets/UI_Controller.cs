@@ -9,7 +9,10 @@ public class UI_Controller : MonoBehaviour
     public Text Maxscore;
     private float timer;
     public GlobalValues_SO _scoreSO;
+    public GlobalValues_SO _MaxscoreSO;
     [Header("BalasUI")]
+    public Button fire;
+    public Button reload;
     public Slider barraBalas;
     public Text cantBalas;
     public float LasBalas = 70;
@@ -23,25 +26,45 @@ public class UI_Controller : MonoBehaviour
     public float vidaPorcentaje;
 
     [Header("Lose")]
+    public Button dead;
     public GameObject panelLose;
     public Text scoreFinaltxt;
     public Button btnHome;
 
+    [Header("NotisData")]
+    public Notifs_SO notiScore;
+    public Notifs_SO notiMaxScore;
     private MovementController _movementController;
     private GameController _gameController;
     private AimController _aimController;
+    private NotificationSimple _notificationSimple;
     private void Awake()
     {
-        _gameController = GetComponent<GameController>();
+
+        _notificationSimple = GetComponent<NotificationSimple>();
+         _gameController = GetComponent<GameController>();
         //btnHome.onClick.AddListener(delegate () { SceneGlobalManager.Instance.ChangeScene(5); });
         _gameController.SeSpameoPlayer += DarVidaTxt;
         _gameController.SeSpameoPlayer += DarBalasTxt;
     }
     void Start()
     {
-        if(Maxscore != null)
+        
+        if (Maxscore != null)
         {
-            Maxscore.text = "MaxScore: " + _scoreSO.scoreGlobal;
+            Maxscore.text = "MaxScore: " + _MaxscoreSO.scoreGlobal;
+        }
+        if (fire != null)
+        {
+            _aimController.fire = fire;
+        }
+        if (reload != null)
+        {
+            _aimController.reload = reload;
+        }
+        if (dead != null)
+        {
+            dead.onClick.AddListener(delegate () { PressDied(); });
         }
     }
 
@@ -57,7 +80,7 @@ public class UI_Controller : MonoBehaviour
 
     void DarVidaTxt(GameObject gameObject)
     {
-
+        _aimController = gameObject.GetComponent<AimController>();
         _movementController = gameObject.GetComponent<MovementController>();
         _movementController.ActualizarVidaUI += ActualizarVIdaUI;
         _movementController.ActualizarVidaUI += OnLoseUI;
@@ -73,13 +96,26 @@ public class UI_Controller : MonoBehaviour
     {
         if(movementController.life <= 0)
         {
-            enemyController.gameObject.SetActive(true);           
-            _scoreSO.scoreGlobal = (int)timer;
-            panelLose.SetActive(true);
-            scoreFinaltxt.text = "ScoreMax:" + (int)timer;
-            SceneGlobalManager.Instance.UnloadScene("GamePlay");
-            SceneGlobalManager.Instance.LoadScene("Results");
+            enemyController.gameObject.SetActive(true);
+            PressDied();
         }
+    }
+    void PressDied()
+    {
+        _scoreSO.scoreGlobal = (int)timer;
+
+        if (_MaxscoreSO.scoreGlobal < _scoreSO.scoreGlobal)
+        {
+            _MaxscoreSO.scoreGlobal = _scoreSO.scoreGlobal;
+            //_notificationSimple.NewMaxScore(_MaxscoreSO.scoreGlobal);
+            _notificationSimple.SendNotification(notiMaxScore);
+        }
+        //panelLose.SetActive(true);
+        //_notificationSimple.NotiGameOver(_scoreSO.scoreGlobal);
+        _notificationSimple.SendNotification(notiScore);
+        scoreFinaltxt.text = "ScoreMax:" + _MaxscoreSO.scoreGlobal;
+        SceneGlobalManager.Instance.UnloadScene("GamePlay");
+        SceneGlobalManager.Instance.LoadScene("Results");
     }
     void ActualizarVIdaUI(MovementController movementController,EnemyController enemyController)
     {

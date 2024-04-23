@@ -116,7 +116,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 874e018187458ac40bbab8820286bb46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life: 30
+  life: 5
   velocity: 4
   estatico: 1
 --- !u!65 &7012261550584554292
@@ -148,3 +148,4 @@ MonoBehaviour:
   poolSize: 20
   objetosActivos: []
   id: 0
+  balasUsed: 0

@@ -3315,8 +3315,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 874e018187458ac40bbab8820286bb46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life: 60
-  velocity: 0
+  life: 7
+  velocity: 2
   estatico: 1
 --- !u!65 &-1334764249039498434
 BoxCollider:
